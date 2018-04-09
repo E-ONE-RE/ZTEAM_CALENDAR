@@ -9,7 +9,7 @@
 	controllerName="eone_zteam_calendar.controller.View1"
 	displayBlock="true">
 
-	<Page title="Vsualizza calendario Team" id="V1" class="sapUiResponsiveContentPadding">	
+	<Page title="Visualizza calendario Team" id="V1" class="sapUiResponsiveContentPadding">	
 	
 	<headerContent>
 
