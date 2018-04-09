@@ -241,6 +241,7 @@ sap.ui.define([
 								
 									var res = oData.results[i].Zdate;
 								
+									if (res != '') {
 									
 									var abs_date_start = oFormatYYyyymmdd.parse(res);
 									 var abs_date_end = oFormatYYyyymmdd.parse(res);
@@ -359,7 +360,7 @@ sap.ui.define([
 	                                           
 										}));
 									*/
-
+							}
 							}
 
 							
