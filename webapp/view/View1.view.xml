@@ -25,11 +25,10 @@
 			showIntervalHeaders="true"
 			appointmentsVisualization="Filled"
 			appointmentSelect="handleAppointmentSelect"
-
+    
 			showEmptyIntervalHeaders="false"
 			showRowHeaders="true"
 			groupAppointmentsMode = "Expanded"
-
 		    >
 				<!--		viewChange = "handleViewChange"-->	
 			<toolbarContent>
