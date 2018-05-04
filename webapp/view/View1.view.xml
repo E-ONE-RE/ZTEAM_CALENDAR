@@ -25,7 +25,7 @@
 			showIntervalHeaders="true"
 			appointmentsVisualization="Filled"
 			appointmentSelect="handleAppointmentSelect"
-    
+
 			showEmptyIntervalHeaders="false"
 			showRowHeaders="true"
 			groupAppointmentsMode = "Expanded"
@@ -44,7 +44,8 @@
 		
 
 		</PlanningCalendar>
-
+		
+			
 	<!--	<PlanningCalendar
 			id="PC1"
 			startDate="{path: '/startDate'}"
