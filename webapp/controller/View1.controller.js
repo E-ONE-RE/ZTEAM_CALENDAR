@@ -217,7 +217,6 @@ sap.ui.define([
 						var abs_hour;
 						var abs_min;
 						
-						
 						 var viewKey = oView.byId("PC1").getViewKey();
 		               
 
@@ -231,9 +230,7 @@ sap.ui.define([
 									
 									person = oData.results[i].Name + " " + oData.results[i].Surname;
 	                               
-	           
-	                           
-	                              
+	  
 	                                var oRow = new sap.m.PlanningCalendarRow({
 										icon: "sap-icon://employee",
 										title: person
