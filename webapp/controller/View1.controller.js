@@ -267,7 +267,7 @@ sap.ui.define([
 											abs_text = "Giornata intera";
 											abs_tooltip = " per giornata intera"
 										}else{
-										 abs_text = "Dalle " + oData.results[i].Ztimestart + " alle " + oData.results[i].Ztimeend;
+										 abs_text = oData.results[i].Ztimestart + "-" + oData.results[i].Ztimeend;
 										 abs_tooltip = " dalle ore "  + oData.results[i].Ztimestart + " alle ore " + oData.results[i].Ztimeend;
 										}
 	
