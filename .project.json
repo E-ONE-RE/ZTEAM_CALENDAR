@@ -6,7 +6,7 @@
   "build": {
     "targetFolder": "dist",
     "sourceFolder": "webapp",
-    "buildRequired": false,
+    "buildRequired": true,
     "lastBuildDateTime": "Wed, 04 Apr 2018 10:50:25 GMT"
   },
   "generation": [
@@ -46,8 +46,8 @@
     "blockPushLevel": "Error"
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZLEAVE_REQUEST_SRV",
-    "metadataFilePath": "",
+    "mockUri": "/sap/opu/odata/sap/ZLEAVE_REQUEST_SRV/",
+    "metadataFilePath": "localService/ZLEAVE_REQUEST_SRV/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
