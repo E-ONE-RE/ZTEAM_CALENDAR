@@ -319,7 +319,12 @@ sap.ui.define([
 					
 						abs_type_icon = "sap-icon://customer-history";
 						
-								
+						case "0005":
+							abs_type_title = "Lavoro agile";
+							that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+							abs_tooltip = "Lavoro agile" + abs_tooltip;
+							abs_type_icon = "sap-icon://home";
+							break;	
 	                }
 	                
 	                if (oData.results[i].ZreqStatus == "A"){
