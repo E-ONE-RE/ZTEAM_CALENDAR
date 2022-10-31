@@ -282,7 +282,7 @@ sap.ui.define([
 					that.sAppointmentTitle = '';
 					
 	                switch (oData.results[i].ZabsType){
-	                		case "0001":
+				case "0001":
 	                	abs_type_title = "Permesso";
 	                	that.sAppointmentTitle = "Permesso ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
 				//		abs_type_type = sap.ui.unified.CalendarDayType.Type08;
@@ -300,8 +300,8 @@ sap.ui.define([
 					
 					
 						abs_type_icon = "sap-icon://general-leave-request";
-						break;
-							case "0003":
+				break;
+				case "0003":
 	                	abs_type_title = "Recupero";	
 	                	that.sAppointmentTitle = "Recupero ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
 				//		abs_type_type = sap.ui.unified.CalendarDayType.Type06;
@@ -311,20 +311,20 @@ sap.ui.define([
 					
 						abs_type_icon = "sap-icon://cause";
 						break;
-							case "0004":
-	                	abs_type_title = "ROL";	
-	                	that.sAppointmentTitle = "ROL ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+				case "0004":
+	                		abs_type_title = "ROL";	
+	                		that.sAppointmentTitle = "ROL ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
 				//		abs_type_type = sap.ui.unified.CalendarDayType.Type05;
-						abs_tooltip = "ROL" + abs_tooltip;
+					abs_tooltip = "ROL" + abs_tooltip;
 					
-						abs_type_icon = "sap-icon://customer-history";
-						
-						case "0005":
-							abs_type_title = "Lavoro agile";
-							that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-							abs_tooltip = "Lavoro agile" + abs_tooltip;
-							abs_type_icon = "sap-icon://home";
-							break;	
+					abs_type_icon = "sap-icon://customer-history";
+				break;
+				case "0005":
+					abs_type_title = "Lavoro agile";
+					that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+					abs_tooltip = "Lavoro agile" + abs_tooltip;
+					abs_type_icon = "sap-icon://home";
+				break;	
 	                }
 	                
 	                if (oData.results[i].ZreqStatus == "A"){
