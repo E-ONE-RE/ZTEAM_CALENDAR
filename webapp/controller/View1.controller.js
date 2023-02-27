@@ -339,10 +339,10 @@ sap.ui.define([
 	                		abs_type_type = sap.ui.unified.CalendarDayType.Type08;
 	                		break;
 	                	case "R": //Rifiutata
-	                		abs_type_type = sap.ui.unified.CalendarDayType.Type02;
+	                		abs_type_type = sap.ui.unified.CalendarDayType.Type03;
 	                		break;
 	                	case "I": //Inserita
-	                		abs_type_type = sap.ui.unified.CalendarDayType.Type01;
+	                		abs_type_type = sap.ui.unified.CalendarDayType.Type05;
 	                		break;
 	                }
 			                		
@@ -492,10 +492,10 @@ sap.ui.define([
 	                	case sap.ui.unified.CalendarDayType.Type08:
 	                		vStato = "Approvata";
 	                		break;
-	                	case sap.ui.unified.CalendarDayType.Type02:
+	                	case sap.ui.unified.CalendarDayType.Type03:
 	                		vStato = "Rifiutata";
 	                		break;
-	                	case sap.ui.unified.CalendarDayType.Type01:
+	                	case sap.ui.unified.CalendarDayType.Type05:
 	                		vStato = "Inserita";
 	                		break;
 	                }			               
