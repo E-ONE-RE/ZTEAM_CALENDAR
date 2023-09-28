@@ -280,7 +280,6 @@ sap.ui.define([
 					//		
 					
 					//that.sAppointmentTitle = '';
-					
 	                switch (oData.results[i].ZabsType){
                 		case "0001":
 		                	abs_type_title = "Permesso";
@@ -324,6 +323,12 @@ sap.ui.define([
 							//that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
 							abs_tooltip = "Lavoro agile" + abs_tooltip;
 							abs_type_icon = "sap-icon://home";
+						break;
+						case "0006":
+							abs_type_title = "Permesso";
+							//that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+							abs_tooltip = "Permesso" + abs_tooltip;
+							abs_type_icon = "sap-icon://decision";
 						break;
 	                }
 	                
