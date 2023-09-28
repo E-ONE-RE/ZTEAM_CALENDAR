@@ -1,10 +1,6 @@
 {
     "resources": [
         {
-            "name": "i18n/i18n.properties",
-            "raw": "i18n/i18n.properties"
-        },
-        {
             "name": "i18n/i18n_en.properties",
             "raw": "i18n/i18n.properties"
         },
@@ -13,28 +9,38 @@
             "raw": "i18n/i18n.properties"
         },
         {
-            "name": "controller/App.controller.js"
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
         },
         {
-            "name": "controller/NotFound.controller.js"
+            "name": "localService/ZLEAVE_REQUEST_SRV/metadata.xml"
         },
         {
-            "name": "controller/BaseController.js"
+            "name": "localService/metadata.xml"
         },
         {
-            "name": "controller/View1.controller.js"
+            "name": "view/Dialog.fragment.xml"
         },
         {
-            "name": "Component-changes.json"
+            "name": "view/View1.view.xml"
+        },
+        {
+            "name": "view/PopoverHelp.fragment.xml"
+        },
+        {
+            "name": "view/NotFound.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
         },
         {
             "name": "manifest.json"
         },
         {
-            "name": "Component.js"
+            "name": "Component-changes.json"
         },
         {
-            "name": "css/scfld-dbg.css"
+            "name": "index.html"
         },
         {
             "name": "css/style.css"
@@ -43,10 +49,19 @@
             "name": "css/scfld.css"
         },
         {
-            "name": "localService/metadata.xml"
+            "name": "css/scfld-dbg.css"
         },
         {
-            "name": "localService/ZLEAVE_REQUEST_SRV/metadata.xml"
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/View1.controller.js"
+        },
+        {
+            "name": "controller/NotFound.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
         },
         {
             "name": "model/models.js"
@@ -55,22 +70,7 @@
             "name": "model/formatter.js"
         },
         {
-            "name": "index.html"
-        },
-        {
-            "name": "view/Dialog.fragment.xml"
-        },
-        {
-            "name": "view/NotFound.view.xml"
-        },
-        {
-            "name": "view/View1.view.xml"
-        },
-        {
-            "name": "view/App.view.xml"
-        },
-        {
-            "name": "view/PopoverHelp.fragment.xml"
+            "name": "Component.js"
         },
         {
             "name": "Component-preload.js",

@@ -88,7 +88,7 @@ sap.ui.define([
 				sap.ui.getCore().setModel(oModel);
 				
 				var oCal1 = oView.byId("PC1");
-				
+				var that = this;
 			//	var oRefDate = new Date();
 						
 			//	oCal1.startDate(oRefDate);
@@ -217,7 +217,6 @@ sap.ui.define([
 						var abs_hour;
 						var abs_min;
 						
-						
 						 var viewKey = oView.byId("PC1").getViewKey();
 		               
 
@@ -227,11 +226,11 @@ sap.ui.define([
                             //	if (oData.results[i].ZreqStatus === 'A' || oData.results[i].ZreqStatus === 'I') {
 								//						var res = oData.results[i].Zdate.substring(8);
 								
-									if (oData.results[i].Tmsuser != person) {
+									if (oData.results[i].Name + " " + oData.results[i].Surname != person) {
 									
-									person = oData.results[i].Tmsuser;
+									person = oData.results[i].Name + " " + oData.results[i].Surname;
 	                               
-	                              
+	  
 	                                var oRow = new sap.m.PlanningCalendarRow({
 										icon: "sap-icon://employee",
 										title: person
@@ -239,14 +238,17 @@ sap.ui.define([
 									oCal1.addRow(oRow);
 								}
 								
+								
+								
 									var res = oData.results[i].Zdate;
 								
+									if (res != '') {
 									
 									var abs_date_start = oFormatYYyyymmdd.parse(res);
 									 var abs_date_end = oFormatYYyyymmdd.parse(res);
 										var abs_hour_start = oData.results[i].Ztimestart.substring(0,2);
 										
-										if (abs_hour_start != '') {
+										/*if (abs_hour_start != '') {
 									//	if (1 == 2) {
 											
 										var abs_min_start = oData.results[i].Ztimestart.substring(3);
@@ -257,70 +259,97 @@ sap.ui.define([
 	                                    
 	                                    abs_date_end.setHours(abs_hour_end,abs_min_end );
 	                                    
-	                                    abs_text = "Dalle " + oData.results[i].Ztimestart + " alle " + oData.results[i].Ztimeend;
+	                                   
 				
 				
-										} else {
-											
+										} else {*/
+										if(oData.results[i].Ztimestart == '' || oData.results[i].Ztimeend == ''){
+											abs_text = "Giornata intera";
+											abs_tooltip = " per giornata intera"
+										}else{
+										 abs_text = oData.results[i].Ztimestart + "-" + oData.results[i].Ztimeend;
+										 abs_tooltip = " dalle ore "  + oData.results[i].Ztimestart + " alle ore " + oData.results[i].Ztimeend;
+										}
 	
 	                                    abs_date_end.setHours('23','59');
 	                                     //		abs_date_end.setDate(abs_date_end.getDate()+1);
 	                                     
-	                                    abs_text = "Giornata intera";
+	    
 				
-										}
+									//	}
 					//		
 					
-					
+					//that.sAppointmentTitle = '';
 	                switch (oData.results[i].ZabsType){
-	                		case "0001":
-	                	
-	                	abs_type_title = "Ferie iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-				//		abs_type_type = sap.ui.unified.CalendarDayType.Type08;
-						abs_tooltip = "Ferie iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-					
+                		case "0001":
+		                	abs_type_title = "Permesso";
+		                	//that.sAppointmentTitle = "Permesso ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+					//		abs_type_type = sap.ui.unified.CalendarDayType.Type08;
+							abs_tooltip = "Permesso" + abs_tooltip;
 						
-						abs_type_icon = "sap-icon://general-leave-request";
+							
+							abs_type_icon = "sap-icon://customer-history";
 	                
 	                	break;
 	                	case "0002":
-	                		
-	                	abs_type_title = "Permesso iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-				//		abs_type_type = sap.ui.unified.CalendarDayType.Type07;
-						abs_tooltip ="Permesso iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-					
-					
-						abs_type_icon = "sap-icon://customer-history";
-						break;
-							case "0003":
-	                		
-	                	abs_type_title = "Recupero iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-				//		abs_type_type = sap.ui.unified.CalendarDayType.Type06;
+		                	abs_type_title= "Ferie";
+		                	//that.sAppointmentTitle = "Ferie ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+					//		abs_type_type = sap.ui.unified.CalendarDayType.Type07;
+							abs_tooltip ="Ferie" + abs_tooltip;
 						
-						abs_tooltip = "Recupero iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-				
-					
-						abs_type_icon = "sap-icon://cause";
-						break;
-							case "0004":
-	                		
-	                	abs_type_title = "Rol iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-				//		abs_type_type = sap.ui.unified.CalendarDayType.Type05;
-						abs_tooltip = "Rol iD: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
-					
-						abs_type_icon = "sap-icon://customer-history";
 						
-								
+							abs_type_icon = "sap-icon://general-leave-request";
+						break;
+						case "0003":
+		                	abs_type_title = "Recupero";	
+		                	//that.sAppointmentTitle = "Recupero ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+					//		abs_type_type = sap.ui.unified.CalendarDayType.Type06;
+							
+							abs_tooltip = "Recupero" + abs_tooltip;
+					
+						
+							abs_type_icon = "sap-icon://cause";
+						break;
+						case "0004":
+		                	abs_type_title = "ROL";	
+		                	//that.sAppointmentTitle = "ROL ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+					//		abs_type_type = sap.ui.unified.CalendarDayType.Type05;
+							abs_tooltip = "ROL" + abs_tooltip;
+						
+							abs_type_icon = "sap-icon://customer-history";
+						break;
+						case "0005":
+							abs_type_title = "Lavoro agile";
+							//that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+							abs_tooltip = "Lavoro agile" + abs_tooltip;
+							abs_type_icon = "sap-icon://home";
+						break;
+						case "0006":
+							abs_type_title = "Permesso";
+							//that.sAppointmentTitle = "Lavoro agile ID: " + formatter.formatRequestId(oData.results[i].ZrequestId) + " \nStato: " + formatter.formatStatus(oData.results[i].ZreqStatus) + " \nGiorno: " + formatter.formatDate(oData.results[i].Zdate);
+							abs_tooltip = "Permesso" + abs_tooltip;
+							abs_type_icon = "sap-icon://decision";
+						break;
 	                }
 	                
-	                if (oData.results[i].ZreqStatus == "A"){
+	                /*if (oData.results[i].ZreqStatus == "A"){
 						abs_type_type = sap.ui.unified.CalendarDayType.Type08;
 								
 				         }else	{
 			              abs_type_type = sap.ui.unified.CalendarDayType.Type05;
 			                	
-			               }	
-			                		
+			               }*/	
+	                switch (oData.results[i].ZreqStatus){
+	                	case "A": //Approvata
+	                		abs_type_type = sap.ui.unified.CalendarDayType.Type08;
+	                		break;
+	                	case "R": //Rifiutata
+	                		abs_type_type = sap.ui.unified.CalendarDayType.Type03;
+	                		break;
+	                	case "I": //Inserita
+	                		abs_type_type = sap.ui.unified.CalendarDayType.Type05;
+	                		break;
+	                }
 			                		
 	                var oAppointment = new sap.ui.unified.CalendarAppointment({
 					startDate: abs_date_start,
@@ -359,7 +388,7 @@ sap.ui.define([
 	                                           
 										}));
 									*/
-
+							}
 							}
 
 							
@@ -450,7 +479,7 @@ sap.ui.define([
 			
 			
 			handleTeamsSelect: function(oEvent) {
-				var oTeams = oEvent.oSource;
+				var oTeams = oEvent.getSource();
 				var aTeamsKey = oTeams.getSelectedKey();
 				
 					this._onBindingChange();
@@ -461,8 +490,24 @@ sap.ui.define([
 			handleAppointmentSelect: function (oEvent) {
 				var oAppointment = oEvent.getParameter("appointment");
 				if (oAppointment) {
-					MessageBox.show(oAppointment.getTitle() + " \nDettaglio ore: " +
-					oAppointment.getText());
+					//MessageBox.show(this.sAppointmentTitle + " \nDettaglio ore: " +
+					//	oAppointment.getText());
+					var vStato;
+	                switch (oEvent.getParameters("appointment").appointment.getType()){
+	                	case sap.ui.unified.CalendarDayType.Type08:
+	                		vStato = "Approvata";
+	                		break;
+	                	case sap.ui.unified.CalendarDayType.Type03:
+	                		vStato = "Rifiutata";
+	                		break;
+	                	case sap.ui.unified.CalendarDayType.Type05:
+	                		vStato = "Inserita";
+	                		break;
+	                }			               
+
+					MessageBox.show(oEvent.getParameters("appointment").appointment.getTitle() + "\nStato: " + vStato + 
+						"\nGiorno: " + oEvent.getParameters("appointment").appointment.getStartDate().toLocaleDateString('it-IT', { day: 'numeric', year:"numeric", month:"short"}) + 
+						"\nDettaglio ore: " + oAppointment.getText());					
 				} else {
 					var aAppointments = oEvent.getParameter("appointments");
 					var sValue = aAppointments.length + " eventi selezionati, scegliere un intervallo di date minore per visualizzare il dettaglio.";
